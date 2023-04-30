@@ -56,6 +56,7 @@ public abstract class Creature {
     }
 
     public int physicalAttack (int defense) {
+        System.out.println("Ataque físico...");
         return  (getPower() * getAttack()) / defense;
     }
 
