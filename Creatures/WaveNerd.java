@@ -20,9 +20,9 @@ public class WaveNerd extends Creature {
         if (creatureType.equals("WaveNerd")) {
             return (int) ((getPower() * getAttack()) / (defense * 0.5));
         } else if (creatureType.equals("StoneDev")) {
-            return ((getPower() * getAttack()) / (defense * 2));
-        } else if (creatureType.equals("BurnCoder")) {
             return ((getPower() * getAttack()) / (defense * 1));
+        } else if (creatureType.equals("BurnCoder")) {
+            return ((getPower() * getAttack()) / (defense * 2));
         } else if (creatureType.equals("BreezeHacker")) {
             return ((getPower() * getAttack()) / (defense * 1));
         } else {
@@ -30,7 +30,3 @@ public class WaveNerd extends Creature {
         }
     }
 }
-
-
-
-
