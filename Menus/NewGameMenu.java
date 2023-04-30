@@ -2,7 +2,7 @@ package Menus;
 
 import java.util.Scanner;
 
-public class NewGameMenu {
+public class NewGameMenu extends Menu {
     private int options;
     private Scanner input = new Scanner(System.in);
 
@@ -18,11 +18,7 @@ public class NewGameMenu {
         System.out.println("Digite o nome da criatura escolhida:");
     }
 
-    public void exitProgram() {
-        System.out.println("Sair do programa...");
-        System.exit(0);
-    }
-
+    @Override
     public void displayMenu() {
 
         do {
@@ -35,9 +31,8 @@ public class NewGameMenu {
                 this.chooseCreature();
                 break;
             case 2:
-                this.exitProgram();
+                exitProgram();
                 break;
-
         }
 
     }
