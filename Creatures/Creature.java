@@ -59,5 +59,5 @@ public abstract class Creature {
         return  (getPower() * getAttack()) / defense;
     }
 
-    public abstract int elementalAttack (int defense);
+    public abstract int elementalAttack (int defense, String creatureType);
 }
