@@ -1,4 +1,4 @@
-public class Creature {
+public abstract class Creature {
     private int power;
     private int attack;
     private int defense;
@@ -52,4 +52,10 @@ public class Creature {
     public void setLifePoints(int lifePoints) {
         this.lifePoints = lifePoints;
     }
+
+    public int physicalAttack (int defense) {
+        return  (getPower() * getAttack()) / defense;
+    }
+
+    public abstract int elementalAttack ();
 }
