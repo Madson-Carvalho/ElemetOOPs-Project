@@ -1,3 +1,5 @@
+package Creatures;
+
 public abstract class Creature {
     private int power;
     private int attack;
@@ -54,8 +56,9 @@ public abstract class Creature {
     }
 
     public int physicalAttack (int defense) {
+        System.out.println("Ataque físico...");
         return  (getPower() * getAttack()) / defense;
     }
 
-    public abstract int elementalAttack ();
+    public abstract int elementalAttack (int defense, String creatureType);
 }
