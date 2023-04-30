@@ -1,3 +1,5 @@
+package Creatures;
+
 public abstract class Creature {
     private int power;
     private int attack;
