@@ -22,17 +22,10 @@ public class HomeMenu extends Menu {
   @Override
   public void displayMenu() {
     do {
-      System.out.println("1 - Deseja iniciar um novo jogo? \n2 - Deseja sair do jogo?");
+      System.out.println("1 - Iniciar um novo jogo \n2 - Sair do jogo");
       setOption(sc.nextInt());
     } while (getOption() < 1 || getOption() > 2);
 
-    switch (getOption()) {
-      case 1:
-        System.out.println("Iniciar novo jogo");
-        break;
-      case 2:
-        exitProgram();
-    }
   }
 
 }
