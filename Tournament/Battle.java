@@ -64,6 +64,9 @@ public class Battle {
 
                     if (gameFlow.verifyLifePoints(unchosenCreatures.get(i).getLifePoints())) {
                         System.out.println("Parabéns você foi o campeão da batalha :)");
+                        if (unchosenCreatures.size() -1 == i) {
+                            System.out.println("Você foi o grande campeão do torneio");
+                        }
                         nextBattleMenu.displayMenu();
                         break;
                     }
@@ -87,7 +90,7 @@ public class Battle {
         return choosedCreatureSpeed > unchosenCreatureSpeed;
     }
 
-    public void playerAttack(int option, Creature oponent, Creature choosedCreature) {
+    private void playerAttack(int option, Creature oponent, Creature choosedCreature) {
         switch (option) {
             case 1:
                 oponent.setLifePoints(oponent.getLifePoints() - choosedCreature.physicalAttack(oponent.getDefense()));
@@ -98,7 +101,7 @@ public class Battle {
         }
     }
 
-    public void oponentAttack(int option, Creature oponent, Creature choosedCreature) {
+    private void oponentAttack(int option, Creature oponent, Creature choosedCreature) {
         switch (option) {
             case 1:
                 choosedCreature.setLifePoints(choosedCreature.getLifePoints() - oponent.physicalAttack(choosedCreature.getDefense()));

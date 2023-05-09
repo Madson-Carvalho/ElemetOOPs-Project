@@ -10,6 +10,8 @@ public class Tournament {
     private Menu homeMenu = new HomeMenu();
     private Menu choiceCreaturesMenu = new ChoiceCreaturesMenu();
     private Menu tournamentMenu = new TournamentMenu();
+    private Battle battle = new Battle();
+    private GameFlow gameFlow = new GameFlow();
 
     private Creature choosedCreature;
 
@@ -21,7 +23,7 @@ public class Tournament {
         this.choosedCreature = choosedCreature;
     }
 
-    public void definePlayerCreature(int selectedCreature) {
+    private void definePlayerCreature(int selectedCreature) {
         switch (selectedCreature) {
             case 1:
                 choosedCreature = new StoneDev();
@@ -52,6 +54,7 @@ public class Tournament {
         switch (choiceCreaturesMenu.getOption()) {
             case 5:
                 choiceCreaturesMenu.exitProgram();
+                break;
             default:
                 this.definePlayerCreature(choiceCreaturesMenu.getOption());
                 tournamentMenu.displayMenu();
@@ -59,7 +62,8 @@ public class Tournament {
 
         switch (tournamentMenu.getOption()) {
             case 1:
-                System.out.println("asdasds");
+                gameFlow.defineUnchosenCreatures(choosedCreature);
+                battle.gameBattle(gameFlow.getUnchosenCreatures() , getChoosedCreature());
                 break;
             case 2:
                 tournamentMenu.exitProgram();
