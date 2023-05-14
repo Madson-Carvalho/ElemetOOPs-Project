@@ -63,7 +63,7 @@ public class Tournament {
         switch (tournamentMenu.getOption()) {
             case 1:
                 gameFlow.defineUnchosenCreatures(choosedCreature);
-                battle.gameBattle(gameFlow.getUnchosenCreatures() , getChoosedCreature());
+                battle.gameBattle(gameFlow.getUnchosenCreatures(), getChoosedCreature());
                 break;
             case 2:
                 tournamentMenu.exitProgram();

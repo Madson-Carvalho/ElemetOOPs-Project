@@ -11,22 +11,31 @@ public class StoneDev extends Creature {
         setDefense(rand.nextInt((15 - 5) + 1) + 5);
         setSpeed(rand.nextInt((10 - 1) + 1) + 1);
         setLifePoints(rand.nextInt((400 - 200) + 1) + 200);
+        setCreatureName(CreatureName.STONEDEV);
     }
 
     @Override
-    public int elementalAttack(int defense, String creatureType) {
+    public void elementalAttack(Creature oponent) {
+        System.out.println("\n" + getCreatureName());
+        System.out.println("Ataque elemental");
         System.out.println("Elemento terra... Percepção Sísmica.");
 
-        if (creatureType.equals("StoneDev")) {
-            return (int) ((getPower() * getAttack()) / (defense * 0.5));
-        } else if (creatureType.equals("WaveNerd")) {
-            return ((getPower() * getAttack()) / (defense * 2));
-        } else if (creatureType.equals("BurnCoder")) {
-            return ((getPower() * getAttack()) / (defense * 1));
-        } else if (creatureType.equals("BreezeHacker")) {
-            return ((getPower() * getAttack()) / (defense * 1));
-        } else {
-            return 0;
+        if (oponent.getCreatureName() == CreatureName.STONEDEV) {
+            int damage = (int) ((getPower() * getAttack()) / (oponent.getDefense() * 0.5));
+            oponent.receiveDamage(damage);
+            showStatusAfterAttack(damage, oponent);
+        } else if (oponent.getCreatureName() == CreatureName.WAVENERD) {
+            int damage = ((getPower() * getAttack()) / (oponent.getDefense() * 2));
+            oponent.receiveDamage(damage);
+            showStatusAfterAttack(damage, oponent);
+        } else if (oponent.getCreatureName() == CreatureName.BURNCODER) {
+            int damage = ((getPower() * getAttack()) / (oponent.getDefense() * 1));
+            oponent.receiveDamage(damage);
+            showStatusAfterAttack(damage, oponent);
+        } else if (oponent.getCreatureName() == CreatureName.BREEZEHACKER) {
+            int damage = ((getPower() * getAttack()) / (oponent.getDefense() * 1));
+            oponent.receiveDamage(damage);
+            showStatusAfterAttack(damage, oponent);
         }
     }
 }

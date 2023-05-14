@@ -6,6 +6,7 @@ public abstract class Creature {
     private int defense;
     private int speed;
     private int lifePoints;
+    private CreatureName creatureName;
 
     public Creature() {
         setPower(this.power);
@@ -55,10 +56,31 @@ public abstract class Creature {
         this.lifePoints = lifePoints;
     }
 
-    public int physicalAttack (int defense) {
-        System.out.println("Ataque físico...");
-        return  (getPower() * getAttack()) / defense;
+    public CreatureName getCreatureName() {
+        return creatureName;
     }
 
-    public abstract int elementalAttack (int defense, String creatureType);
+    public void setCreatureName(CreatureName creatureName) {
+        this.creatureName = creatureName;
+    }
+
+    public void physicalAttack(Creature enemy) {
+        System.out.println("\n" + getCreatureName());
+        System.out.println("Ataque físico...");
+        int damage = (getPower() * getAttack()) / enemy.getDefense();
+        enemy.receiveDamage(damage);
+        showStatusAfterAttack(damage, enemy);
+    }
+
+    public abstract void elementalAttack(Creature oponent);
+
+    public void receiveDamage(int damage) {
+        setLifePoints(getLifePoints() - damage);
+    }
+
+    public void showStatusAfterAttack(int damage, Creature enemy) {
+        System.out.printf("Dano aplicado: %d\n", damage);
+        int enemyLife = enemy.getLifePoints() <= 0 ? 0 : enemy.getLifePoints();
+        System.out.printf("Vida do inimigo: %d\n", enemyLife);
+    }
 }

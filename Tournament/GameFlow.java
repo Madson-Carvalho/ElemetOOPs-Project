@@ -22,14 +22,40 @@ public class GameFlow {
         unchosenCreatures.add(burnCoder);
         unchosenCreatures.add(breezeHacker);
 
-        for (int i = 0; i < unchosenCreatures.size(); i ++) {
-            if (unchosenCreatures.get(i).getClass().getSimpleName().equals(choosedCreature.getClass().getSimpleName())) {
+        for (int i = 0; i < unchosenCreatures.size(); i++) {
+            if (unchosenCreatures.get(i).getCreatureName() == choosedCreature.getCreatureName()) {
                 unchosenCreatures.remove(i);
             }
         }
     }
 
-    public boolean verifyLifePoints(int creatureLife) {
-        return creatureLife < 1;
+    public boolean verifyLifePoints(Creature enemy) {
+        return enemy.getLifePoints() < 1;
+    }
+
+    public boolean verifySpeed(Creature enemy, Creature playerCreature) {
+        return playerCreature.getSpeed() > enemy.getSpeed();
+    }
+
+    public void playerAttack(int option, Creature oponent, Creature choosedCreature) {
+        switch (option) {
+            case 1:
+                choosedCreature.physicalAttack(oponent);
+                break;
+            case 2:
+                choosedCreature.elementalAttack(oponent);
+                break;
+        }
+    }
+
+    public void oponentAttack(int option, Creature oponent, Creature choosedCreature) {
+        switch (option) {
+            case 1:
+                oponent.physicalAttack(choosedCreature);
+                break;
+            case 2:
+                oponent.elementalAttack(choosedCreature);
+                break;
+        }
     }
 }
