@@ -48,12 +48,12 @@ public class Tournament {
                 choiceCreaturesMenu.displayMenu();
                 break;
             case 2:
-                homeMenu.exitProgram(homeMenu);
+                homeMenu.exitProgram(this);
         }
 
         switch (choiceCreaturesMenu.getOption()) {
             case 5:
-                choiceCreaturesMenu.exitProgram(choiceCreaturesMenu);
+                choiceCreaturesMenu.exitProgram(this);
                 break;
             default:
                 this.definePlayerCreature(choiceCreaturesMenu.getOption());
@@ -63,10 +63,10 @@ public class Tournament {
         switch (tournamentMenu.getOption()) {
             case 1:
                 gameFlow.defineUnchosenCreatures(choosedCreature);
-                battle.gameBattle(gameFlow.getUnchosenCreatures(), getChoosedCreature());
+                battle.gameBattle(gameFlow.getUnchosenCreatures(), getChoosedCreature(), this);
                 break;
             case 2:
-                tournamentMenu.exitProgram(tournamentMenu);
+                tournamentMenu.exitProgram(this);
         }
     }
 

@@ -15,14 +15,14 @@ public class Battle {
     private GameFlow gameFlow = new GameFlow();
     private boolean nextBattle = true;
 
-    public void gameBattle(ArrayList<Creature> unchosenCreatures, Creature choosedCreature) {
+    public void gameBattle(ArrayList<Creature> unchosenCreatures, Creature choosedCreature, Tournament tournament) {
         for (int i = 0; i < unchosenCreatures.size(); i++) {
             if (gameFlow.verifySpeed(unchosenCreatures.get(i), choosedCreature)) {
                 do {
                     attackMenu.displayMenu();
                     switch (attackMenu.getOption()) {
                         case 3:
-                            attackMenu.exitProgram(attackMenu);
+                            attackMenu.exitProgram(tournament);
                             break;
                         default:
                             gameFlow.playerAttack(attackMenu.getOption(), unchosenCreatures.get(i), choosedCreature);
@@ -59,7 +59,7 @@ public class Battle {
                     attackMenu.displayMenu();
                     switch (attackMenu.getOption()) {
                         case 3:
-                            attackMenu.exitProgram(attackMenu);
+                            attackMenu.exitProgram(tournament);
                             break;
                         default:
                             gameFlow.playerAttack(attackMenu.getOption(), unchosenCreatures.get(i), choosedCreature);
@@ -82,7 +82,7 @@ public class Battle {
             }
 
             if (nextBattleMenu.getOption() == 2) {
-                nextBattleMenu.exitProgram(nextBattleMenu);
+                nextBattleMenu.exitProgram(tournament);
                 break;
             }
         }

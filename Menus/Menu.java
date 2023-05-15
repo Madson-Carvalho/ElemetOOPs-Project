@@ -1,5 +1,7 @@
 package Menus;
 
+import Tournament.Tournament;
+
 import java.util.Scanner;
 
 public abstract class Menu {
@@ -27,7 +29,7 @@ public abstract class Menu {
         this.read = read;
     }
 
-    public void exitProgram(Menu menu) {
+    public void exitProgram(Tournament tournament) {
         int optionExit;
         System.out.println("Tem certeza que deseja sair do programa ? \n 1 - Sim \n 2 - Não ");
         optionExit = read.nextInt();
@@ -35,7 +37,7 @@ public abstract class Menu {
             System.out.println("Encerrando programa...");
             System.exit(0);
         } else {
-            menu.displayMenu();
+            tournament.startGame();
         }
 
     }
