@@ -27,9 +27,17 @@ public abstract class Menu {
         this.read = read;
     }
 
-    public void exitProgram() {
-        System.out.println("Encerrando programa...");
-        System.exit(0);
+    public void exitProgram(Menu menu) {
+        int optionExit;
+        System.out.println("Tem certeza que deseja sair do programa ? \n 1 - Sim \n 2 - Não ");
+        optionExit = read.nextInt();
+        if(optionExit == 1) {
+            System.out.println("Encerrando programa...");
+            System.exit(0);
+        } else {
+            menu.displayMenu();
+        }
+
     }
 
     public abstract void displayMenu();

@@ -22,7 +22,7 @@ public class Battle {
                     attackMenu.displayMenu();
                     switch (attackMenu.getOption()) {
                         case 3:
-                            attackMenu.exitProgram();
+                            attackMenu.exitProgram(attackMenu);
                             break;
                         default:
                             gameFlow.playerAttack(attackMenu.getOption(), unchosenCreatures.get(i), choosedCreature);
@@ -59,7 +59,7 @@ public class Battle {
                     attackMenu.displayMenu();
                     switch (attackMenu.getOption()) {
                         case 3:
-                            attackMenu.exitProgram();
+                            attackMenu.exitProgram(attackMenu);
                             break;
                         default:
                             gameFlow.playerAttack(attackMenu.getOption(), unchosenCreatures.get(i), choosedCreature);
@@ -82,7 +82,7 @@ public class Battle {
             }
 
             if (nextBattleMenu.getOption() == 2) {
-                nextBattleMenu.exitProgram();
+                nextBattleMenu.exitProgram(nextBattleMenu);
                 break;
             }
         }
