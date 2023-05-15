@@ -16,6 +16,7 @@ public class Battle {
     private boolean nextBattle = true;
 
     public void gameBattle(ArrayList<Creature> unchosenCreatures, Creature choosedCreature, Tournament tournament) {
+        int choosedCreatureLife = choosedCreature.getLifePoints();
         for (int i = 0; i < unchosenCreatures.size(); i++) {
             if (gameFlow.verifySpeed(unchosenCreatures.get(i), choosedCreature)) {
                 do {
@@ -29,11 +30,12 @@ public class Battle {
                     }
 
                     if (gameFlow.verifyLifePoints(unchosenCreatures.get(i))) {
-                        System.out.println("Parabéns você foi o campeão da batalha :)");
+                        System.out.println("\nParabéns você foi o campeão da batalha :)");
                         if (unchosenCreatures.size() - 1 == i) {
-                            System.out.println("Você foi o grande campeão do torneio ElementOOPs");
+                            System.out.println("\nVocê foi o grande campeão do torneio ElementOOPs");
                         }
                         nextBattleMenu.displayMenu();
+                        choosedCreature.setLifePoints(choosedCreatureLife);
                         break;
                     }
 
@@ -66,11 +68,12 @@ public class Battle {
                     }
 
                     if (gameFlow.verifyLifePoints(unchosenCreatures.get(i))) {
-                        System.out.println("Parabéns você foi o campeão da batalha :)");
+                        System.out.println("\nParabéns você foi o campeão da batalha :)");
                         if (unchosenCreatures.size() - 1 == i) {
-                            System.out.println("Você foi o grande campeão do torneio ElementOOPs");
+                            System.out.println("\nVocê foi o grande campeão do torneio ElementOOPs");
                         }
                         nextBattleMenu.displayMenu();
+                        choosedCreature.setLifePoints(choosedCreatureLife);
                         break;
                     }
 
